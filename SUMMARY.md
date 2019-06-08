@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+
 * [第一章 Linux](chapter1.md)
   * [1.Linux基础](chapter/1/section1.md)
   * [2.Linux高级](chapter/1/section2.md)
