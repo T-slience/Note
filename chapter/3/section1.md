@@ -71,7 +71,7 @@
         - 基于字节流
             - 传输信息使用二进制传输,而不能使用字符串
     
-- # 4.socket
+# 4.socket
 - 1.概念
     -  socket (简称 套接字) 是进程之间通信一个工具，
     -  只要跟网络相关的应用程序或者软件都是用到了socket
@@ -85,75 +85,21 @@
         -  接收数据也必须通过网卡接收,需要调用操作系统接口
         -  即 由操作系统通过网卡接收数据,把接收的数据写入到接收缓冲区
         -  应用程序再从接收缓存区获取客户端发送的数据
-![](/assets/tcp网络应用程序的开发流程.png)
 
-- 3.发送和接收的流程
-    - 以客户端为例 
-    - send
-        - 客户端数据-->socket-->客户端发送缓冲区-->客户端网卡-->服务端网卡-->服务端接收缓冲区-->socket-->接收到客户端数据
-    - recv
-        - 服务端数据-->socket-->服务端发送缓冲区-->服务端网卡-->客户端网卡-->客户端接收缓冲区-->socket-->接收到服务端数据 
-    
-- # 5.TCP网络应用开发流程
+- 3.发送和接收的流程  
+    ![](/assets/send和recv原理.png)
+
+# 5.TCP网络应用开发流程
 - 1.介绍
     - TCP网络应用开发分为:
         - TCP客户端程序开发
         - TCP服务端程序开发
     - 客户端程序是指运行在用户设备上的程序(主动发起建立连接请求)
     - 服务端是指运行在服务器设备上的程序,专门为客户端提供数据服务(等待接受连接请求)
-- 2.TCP客户端开发流程
-    - 创建客户端套接字对象
-    - 和服务端套接字建立连接
-    - 发送数据
-    - 接收数据
-    - 关闭客户端套接字
+- 2.TCP客户端及服务端开发流程
 
-- 3.TCP服务端开发流程
-    - 创建服务端套接字对象
-    - 端口复用(根据需求)
-    - 绑定端口号
-    - 设置监听
-    - 等待接受客户端的连接请求
-    - 发送数据
-    - 接收数据
-    - 关闭客户端套接字
+    ![](/assets/tcp网络应用程序的开发流程.png)
 
 
-- # 6.TCP客户端开发
-```
-import socket
 
-if __name__ == '__main__':
-    # 1.创建tcp客户端套接字
-    # 1.1. AF_INET：表示ipv4
-    # 1.2. SOCK_STREAM: tcp传输协议
-    tcp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # 2.和服务端应用程序建立连接
-    tcp_client_socket.connect(("192.168.131.62", 8080))
-    # 代码执行到此，说明连接建立成功
-    # 3.1准备发送的数据,并进行转码
-    send_data = "你好服务端，我是客户端小黑!".encode("gbk")
-    # 3.2 发送数据
-    tcp_client_socket.send(send_data)
-    # 4.1接收数据, 这次接收的数据最大字节数是1024
-    recv_data = tcp_client_socket.recv(1024)
-    # 返回的直接是服务端程序发送的二进制数据
-    print(recv_data)
-    # 4.2对数据进行解码
-    recv_content = recv_data.decode("gbk")
-    print("接收服务端的数据为:", recv_content)
-    # 5.关闭套接字
-    tcp_client_socket.close()
-```
-- 导入socket模块
-    - import socket
-- 创建客户端socket对象
-    - socket.socket(AddressFamily,Type)
-    - AddressFamily 表示IP地址类型,
-        - 分为IPv4 AF_INET  和 IPv6  AF_INET6
-    - Type 表示传输协议类型
-        - SOCK_STREAM TCP传输协议
-        - SOCK_DGRAM  UDP传输协议
-- 方法说明
-    - connect((host,port)) 表示和服务端套接字简历连接
-        - host 是服务器ip地址,port 是应用程序的端口号 
+
