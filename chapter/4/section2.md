@@ -280,11 +280,11 @@ if __name__ == '__main__':
 
 
 - 2.示例
+    
     ```
     import socket
     import threading
-    
-    
+      
     # 定义web服务器类
     class HttpWebServer(object):
         def __init__(self):
