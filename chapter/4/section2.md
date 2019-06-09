@@ -359,7 +359,6 @@ if __name__ == '__main__':
             finally:
                 # 关闭服务与客户端的套接字
                 new_socket.close()
-    
         # 启动web服务器进行工作
         def start(self):
             while True:
@@ -371,20 +370,18 @@ if __name__ == '__main__':
                 sub_thread.setDaemon(True)
                 # 启动子线程执行对应的任务
                 sub_thread.start()
-    
-    
+        
     # 程序入口函数
     def main():
         # 创建web服务器对象
         web_server = HttpWebServer()
         # 启动web服务器进行工作
-        web_server.start()
-    
-    
+        web_server.start()   
+   
     if __name__ == '__main__':
-        main()
-    
+        main() 
     ```
+
 
 
 
