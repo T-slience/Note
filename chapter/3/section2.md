@@ -29,7 +29,8 @@ if __name__ == '__main__':
 - 创建客户端socket对象
     - socket.socket(AddressFamily,Type)
     - AddressFamily 表示IP地址类型,
-        - 分为IPv4 AF_INET  和 IPv6  AF_INET6
+        - IPv4 AF_INET  
+        -  IPv6  AF_INET6
     - Type 表示传输协议类型
         - SOCK_STREAM TCP传输协议
         - SOCK_DGRAM  UDP传输协议
