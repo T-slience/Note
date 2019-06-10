@@ -28,16 +28,16 @@
     - <head>...</head>标签用于定义文档的头部,是负责对网页进行设置标题、编码格式以及引入css和js文件的。
     - <body>...</body>标签是编写网页上显示的内容。
  
- - 3.vscode 的基本使用
-     - 1.介绍
+- 3.vscode 的基本使用
+ - 1.介绍
          - vscode( Visual Studio Code) ,是由微软研发的一款免费的,开源的跨平台代码编辑器
          - 目前是前端(网页)开发使用最多的一款软件开发工具
-    - 2.安装
+ - 2.安装
         - https://code.visualstudio.com/Download       
         - vscode插件:
             - Chinese (Simplified) Language Pack for VS Code
             - open in browser
-    - 3.快捷键
+ - 3.快捷键
         - 注释: ctrl + /
         - 快速创建html文档基本结构: shift + 1 +  tab/enter
 
@@ -66,7 +66,7 @@
     <a href="http://www.baidu.com">百度网</a>
 </div>
 ```
-- 学习 html 语言就是学习标签的用法,常用的 
+- 学习 html 语言就是学习标签的用法,常用的标签有20多个 
 - 标签不区分大小写,但推荐使用小写
 - 根据书写形式,分为双标签(闭合标签)和单标签(空标签)
     - 双标签:
