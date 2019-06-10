@@ -51,6 +51,7 @@
     - 控制台（Console）：执行js代码
     - 源代码（Sources）：查看静态资源文件，断点调试JS代码
     - 网络（Network）：查看http协议的通信过程
+    - Name 里每一项都是一次请求和响应的过程
     
     ![](/assets/通信过程-3.png)
     
