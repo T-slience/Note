@@ -14,7 +14,7 @@
   * [2.TCP网络编程](chapter/3/section2.md)
 * [第四章 http和Web](chapter4.md)
   * [1.http请求和响应报文](chapter/4/section1.md)
-  * [2.静态web](chapter/4/section2.md)
+  * [2.静态web服务器](chapter/4/section2.md)
 * [第五章 html+css](chapter5.md)
   * [1.html基础](chapter/5/section1.md)
   * [2.css 基础](chapter/5/section2.md)
