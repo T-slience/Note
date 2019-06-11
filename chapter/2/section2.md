@@ -172,35 +172,40 @@
         - 很少使用
         - 即锁上加锁,打开了第一层锁才能打开第二层并执行其内部代码
         
-    ```
-        from threading import RLock
+```
+    from threading import RLock
 
-        lock = RLock()
-        lock.acquire()
-        lock.acquire()
-        print(123)
-        lock.release()
-        print(456)
-        lock.release()
+    lock = RLock()
+    lock.acquire()
+    lock.acquire()
+    print(123)
+    lock.release()
+    print(456)
+    lock.release()
 
         ```
     - 线程池
         - 创建一个线程池并在其中创建多个子线程
         - 在需要执行任务的时候,调用线程池的子线程执行,若此时线程池没有空闲子线程则等待
         - 子线程在执行完任务后,不会销毁,而是回到线程池
-       
-         ```
+        - 同样存在进程池
+
+```
     import time
     from concurrent.futures import ThreadPoolExecutor,ProcessPoolExecutor
+    
     def func(num):
-            print(num)
-            time.sleep(1)
+        print(num)
+        time.sleep(1)
         print(num)
     if __name__ == '__main__':
-            t=ThreadPoolExecutor(20) #20个线程，每次处理20个
-            for i in range(50):
+        t=ThreadPoolExecutor(20) #20个线程，每次处理20个
+        for i in range(50):
             t.submit(func,i) #异步提交命令
         t.shutdown()#同join整个线程池
         print('done')
+```
 
-         ```
+
+
+ - 协程(略)
