@@ -26,9 +26,9 @@
     </html>
     ```
     - 第一行<!DOCTYPE html>是文档声明, 用来指定页面所使用的html的版本, 这里声明的是一个html5的文档。
-    - html.../html标签是开发人员在告诉浏览器，整个网页是从html这里开始的，到<html>结束,也就是html文档的开始和结束标签。
-    - head.../head标签用于定义文档的头部,是负责对网页进行设置标题、编码格式以及引入css和js文件的。
-    - body.../body标签是编写网页上显示的内容。
+    - &lthtml&gt...&lt /html&gt标签是开发人员在告诉浏览器，整个网页是从html这里开始的，到<html>结束,也就是html文档的开始和结束标签。
+    - &lthead&gt...&lt /head&gt标签用于定义文档的头部,是负责对网页进行设置标题、编码格式以及引入css和js文件的。
+    - &ltbody&gt...&lt /body&gt标签是编写网页上显示的内容。
  
 
 - 3.vscode 的基本使用
