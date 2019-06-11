@@ -418,7 +418,7 @@ class HttpWebServer(object):
         self.tcp_server_socket = tcp_server_socket
         
     # 处理客户端的请求
-     @staticmethod
+    @staticmethod
     def handle_client_request(new_socket):
         # 代码执行到此，说明连接建立成功
         recv_client_data = new_socket.recv(4096)
