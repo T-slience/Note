@@ -423,9 +423,9 @@ class HttpWebServer(object):
         # 代码执行到此，说明连接建立成功
         recv_client_data = new_socket.recv(4096)
         if len(recv_client_data) == 0:
-        print("关闭浏览器了")
-        new_socket.close()
-        return
+            print("关闭浏览器了")
+            new_socket.close()
+            return
         # 对二进制数据进行解码
         recv_client_content = recv_client_data.decode("utf-8")
         print(recv_client_content)
@@ -436,53 +436,53 @@ class HttpWebServer(object):
         print(request_path)
         # 判断请求的是否是根目录，如果条件成立，指定首页数据返回
         if request_path == "/":
-        request_path = "/index.html"
+            request_path = "/index.html"
         try:
-        # 动态打开指定文件
-        with open("static" + request_path, "rb") as file:
-        # 读取文件数据
-        file_data = file.read()
+            # 动态打开指定文件
+            with open("static" + request_path, "rb") as file:
+            # 读取文件数据
+            file_data = file.read()
         except Exception as e:
-        # 请求资源不存在，返回404数据
-        # 响应行
-        response_line = "HTTP/1.1 404 Not Found\r\n"
-        # 响应头
-        response_header = "Server: PWS1.0\r\n"
-        with open("static/error.html", "rb") as file:
-        file_data = file.read()
-        # 响应体
-        response_body = file_data
-        # 拼接响应报文
-        response_data = (response_line + response_header + "\r\n").encode("utf-8") + response_body
-        # 发送数据
-        new_socket.send(response_data)
+            # 请求资源不存在，返回404数据
+            # 响应行
+            response_line = "HTTP/1.1 404 Not Found\r\n"
+            # 响应头
+            response_header = "Server: PWS1.0\r\n"
+            with open("static/error.html", "rb") as file:
+            file_data = file.read()
+            # 响应体
+            response_body = file_data
+            # 拼接响应报文
+            response_data = (response_line + response_header + "\r\n").encode("utf-8") + response_body
+            # 发送数据
+            new_socket.send(response_data)
         else:
-        # 响应行
-        response_line = "HTTP/1.1 200 OK\r\n"
-        # 响应头
-        response_header = "Server: PWS1.0\r\n"
-        # 响应体
-        response_body = file_data
-        # 拼接响应报文
-        response_data = (response_line + response_header + "\r\n").encode("utf-8") + response_body
-        # 发送数据
-        new_socket.send(response_data)
+            # 响应行
+            response_line = "HTTP/1.1 200 OK\r\n"
+            # 响应头
+            response_header = "Server: PWS1.0\r\n"
+            # 响应体
+            response_body = file_data
+            # 拼接响应报文
+            response_data = (response_line + response_header + "\r\n").encode("utf-8") + response_body
+            # 发送数据
+            new_socket.send(response_data)
         finally:
-        # 关闭服务与客户端的套接字
-        new_socket.close()
+            # 关闭服务与客户端的套接字
+            new_socket.close()
     # 启动web服务器进行工作
     def start(self):
-    while True:
-    # 等待接受客户端的连接请求
-    new_socket, ip_port = self.tcp_server_socket.accept()
-    # 当客户端和服务器建立连接程，创建子线程
-    sub_thread = threading.Thread(target=self.handle_client_request, args=(new_socket,))
-    # 设置守护主线程
-    sub_thread.setDaemon(True)
-    # 启动子线程执行对应的任务
-    sub_thread.start()
-    # 程序入口函数
+        while True:
+            # 等待接受客户端的连接请求
+            new_socket, ip_port = self.tcp_server_socket.accept()
+            # 当客户端和服务器建立连接程，创建子线程
+            sub_thread = threading.Thread(target=self.handle_client_request, args=(new_socket,))
+            # 设置守护主线程
+            sub_thread.setDaemon(True)
+            # 启动子线程执行对应的任务
+            sub_thread.start()
 
+# 程序入口函数
 def main():
     print(sys.argv)
     
