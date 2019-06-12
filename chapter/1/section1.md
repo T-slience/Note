@@ -95,7 +95,7 @@
 
 # 6.命令
 - ### 1.终端命令的格式及组成
-- 1.终端命令格式说明
+- 终端命令格式说明
     - command [-options] [parameter]
     - command :
         - 命令名,例如:ls ,pwd
